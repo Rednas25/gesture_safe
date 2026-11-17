@@ -1,6 +1,8 @@
 RED = (255, 0, 0) 
 GREEN = (0, 255, 0)
 BLACK = (0, 0, 0)
+BLUE = (0, 0, 255)
+YELLOW = (255, 255, 0)
 
 LOCKED_ICON = [
 	"..####..",
@@ -35,6 +37,17 @@ ERROR_ICON = [
 	"#......#",
 ]
 
+KEY_ICON = [
+	"..###...",
+	".#...#..",
+	".#...#..",
+	"..###...",
+	"...#....",
+	"...##...",
+	"...#....",
+	"...##...",
+]
+
 def show_icon(sense, icon, color): 
 	pixels = [
 		color if pixel == "#" else BLACK
@@ -51,6 +64,12 @@ def show_unlocked(sense):
 
 def show_error(sense):
 	show_icon(sense, ERROR_ICON, RED)
+
+def show_key(sense):
+	show_icon(sense, KEY_ICON, BLUE)
+
+def show_lock_option(sense):
+	show_icon(sense, LOCKED_ICON, YELLOW)
 
 if __name__ == "__main__":
 	from sense_emu import SenseHat
